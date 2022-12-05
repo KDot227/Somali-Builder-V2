@@ -1,10 +1,25 @@
-import customtkinter as kdot
-import tkinter as tk
-from PIL import Image
+import tkinter as tk #prolly built in but idk ngl
 import os
-import requests
 import random
 from random import randint
+
+try:
+    import customtkinter as kdot
+except:
+    os.system("pip install customtkinter")
+    import customtkinter as kdot
+    
+try:
+    from PIL import Image
+except:
+    os.system("pip install pillow")
+    from PIL import Image
+
+try:
+    import requests
+except:
+    os.system("pip install requests")
+    import requests
 
 class Buidler(kdot.CTk):
     def __init__(self):
