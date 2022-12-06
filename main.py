@@ -40,7 +40,7 @@ class Buidler(kdot.CTk):
         self.geometry("700x450")
         
         self.grid_rowconfigure(0, weight=1)
-        self.grid_columnconfigure(1, weight=1)
+        self.grid_columnconfigure((1,2), weight=1)
         
         image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "test_images")
         
@@ -118,9 +118,9 @@ class Buidler(kdot.CTk):
         self.about_label = kdot.CTkLabel(self.about_frame, text="About", text_color=("gray10", "gray90"), anchor="w", font=("Arial", 20))
         self.about_label.grid(row=0, column=0, sticky="ew", padx=10, pady=10)
         
-        self.text_box = kdot.CTkTextbox(self.about_frame, width=100, height=100, corner_radius=10)
+        self.text_box = kdot.CTkTextbox(self.about_frame, width=110, height=100, corner_radius=10)
         self.text_box.insert("end", "Special thanks to K.Dot#4044 (me) for making this program.\n\nAlso special thanks to Timmywag for being annoying af telling me to make it.\n\n")
-        self.text_box.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
+        self.text_box.grid(row=1, column=0, padx=5, pady=10, sticky="nsew", columnspan=3)
         self.text_box.configure(state="disabled")
         
         self.github_button = kdot.CTkButton(self.about_frame, text=None, image=self.github_image, text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=50, width=100, command=self.github_button_event)
