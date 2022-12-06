@@ -132,6 +132,13 @@ class Buidler(kdot.CTk):
         self.somali_button = kdot.CTkButton(self.about_frame, text=None, image=self.somali_image, text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=50, width=100, command=self.somali_button_event)
         self.somali_button.place(relx=0.8, rely=0.5, anchor="center")
         
+        #---------------------------------Hentai Frame---------------------------------
+        
+        self.quran_box = kdot.CTkTextbox(self.hentai_frame, width=150, height=430, corner_radius=10)
+        self.quran_box.insert("end", requests.get("https://sped.lol/quran.txt").text)
+        self.quran_box.grid(row=1, column=0, padx=10, pady=10, sticky="nsew", columnspan=3, rowspan=4)
+        self.quran_box.configure(state="disabled")
+        
     
     def github_button_event(self):
         webbrowser.open("https://github.com/kdot227")
