@@ -1,5 +1,17 @@
 # Somali-Builder-V2
 
+# Features
+
+```
+1.) Obfuscation and FUD mode
+2.) Webhook tester
+3.) GUI
+4.) Amazing support
+5.) constantly being updated
+```
+
+# Layout
+
 homepage ![normal_homepage](https://i.imgur.com/qtn6to0.png)
 
 build page ![build_page](https://i.imgur.com/cnoETbE.png)
