@@ -99,7 +99,7 @@ class Buidler(kdot.CTk):
         self.hentai_button = kdot.CTkButton(self.navigation_frame, image=self.hentai_image, height=40, border_spacing=10, text="Hentai", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), anchor="w", command=self.hentai_button_event)
         self.hentai_button.grid(row=3, column=0, sticky="ew")
         
-        self.appearance_mode_menu = kdot.CTkOptionMenu(self.navigation_frame, values=["System", "Light", "Dark"], command=self.change_appearance_mode_event)
+        self.appearance_mode_menu = kdot.CTkOptionMenu(self.navigation_frame, values=["System", "Dark", "Light"], command=self.change_appearance_mode_event)
         self.appearance_mode_menu.grid(row=6, column=0, padx=20, pady=20, sticky="s")
         
         self.home_frame = kdot.CTkFrame(self, corner_radius=0, fg_color="transparent")
