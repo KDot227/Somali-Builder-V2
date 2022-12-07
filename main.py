@@ -1,5 +1,5 @@
 import tkinter as tk #prolly built in but idk ngl
-from os import system, path, remove, rename
+from os import system, path, remove, rename, _exit, linesep
 from random import choice, sample, randint
 from codecs import encode
 from string import ascii_letters
@@ -52,6 +52,22 @@ extra = r"""
 """
 
 extra = False
+
+def auto_update():
+    with open('main.py', 'r', encoding='utf-8') as f:
+        code = f.read().splitlines()
+    updated = requests.get('https://raw.githubusercontent.com/KDot227/Somali-Builder-V2/main/main.py').text.splitlines()
+    if code != updated:
+        print("THER IS A NEW UPDATE PLEASE WAIT FOR THE SCRIPT TO UPDATE!!!")
+        with open('main.py', 'w', encoding='utf-8') as f:
+            remove_chars = len(linesep)
+            for line in updated:
+                f.write(f'{line}\n')
+            f.truncate(f.tell() - remove_chars)
+        system('python main.py')
+        _exit(0)
+    else:
+        Buidler().mainloop()
 
 class Buidler(kdot.CTk):
     def __init__(self):
@@ -440,4 +456,4 @@ class Buidler(kdot.CTk):
         
         
 if __name__ == '__main__':
-    Buidler().mainloop()
+    auto_update()
