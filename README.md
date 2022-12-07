@@ -18,7 +18,7 @@
 
 Home Page ![normal_homepage](https://i.imgur.com/qtn6to0.png)
 
-Build Page ![build_page](https://i.imgur.com/cnoETbE.png)
+Build Page ![build_page](https://i.imgur.com/aRuwNkA.png)
 
 About Page ![about_page](https://i.imgur.com/np1SfkJ.png)
 
