@@ -83,7 +83,7 @@ class Buidler(kdot.CTk):
         self.geometry("700x450")
         
         self.grid_rowconfigure(0, weight=1)
-        self.grid_columnconfigure((1,2), weight=1)
+        self.grid_columnconfigure(1, weight=1)
         
         image_path = path.join(path.dirname(path.realpath(__file__)), "test_images")
         
