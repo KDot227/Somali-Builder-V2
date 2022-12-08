@@ -54,7 +54,7 @@ extra = r"""
 extra = False
 
 def auto_update():
-    bypass = False
+    bypass = True
     if bypass == True:
         Buidler().mainloop()
     else:
@@ -126,10 +126,10 @@ class Buidler(kdot.CTk):
         self.home_frame.grid_columnconfigure((1,4), weight=1)
         
         self.about_frame = kdot.CTkFrame(self, corner_radius=0, fg_color="transparent")
-        self.about_frame.grid_columnconfigure(0, weight=1)
+        self.about_frame.grid_columnconfigure((1,4), weight=1)
         
         self.hentai_frame = kdot.CTkFrame(self, corner_radius=0, fg_color="transparent")
-        self.hentai_frame.grid_columnconfigure(0, weight=1)
+        self.hentai_frame.grid_columnconfigure((1,4), weight=1)
         
         #webhook stuff
         self.webhook_box_label = kdot.CTkLabel(self.home_frame, text="Webhook URL", text_color=("gray10", "gray90"), anchor="w")
@@ -163,7 +163,7 @@ class Buidler(kdot.CTk):
         self.about_label = kdot.CTkLabel(self.about_frame, text="About", text_color=("gray10", "gray90"), anchor="w", font=("Arial", 20))
         self.about_label.grid(row=0, column=0, sticky="ew", padx=10, pady=10)
         
-        self.text_box = kdot.CTkTextbox(self.about_frame, width=110, height=100, corner_radius=10)
+        self.text_box = kdot.CTkTextbox(self.about_frame, width=550, height=100, corner_radius=10)
         self.text_box.insert("end", "Special thanks to K.Dot#4044 (me) for making this program.\n\nAlso special thanks to Timmywag for being annoying af telling me to make it.\n\n")
         self.text_box.grid(row=1, column=0, padx=5, pady=10, sticky="nsew", columnspan=3)
         self.text_box.configure(state="disabled")
@@ -179,7 +179,7 @@ class Buidler(kdot.CTk):
         
         #---------------------------------Hentai Frame---------------------------------
         
-        self.quran_box = kdot.CTkTextbox(self.hentai_frame, width=150, height=430, corner_radius=10)
+        self.quran_box = kdot.CTkTextbox(self.hentai_frame, width=550, height=430, corner_radius=10)
         self.quran_box.insert("end", requests.get("https://sped.lol/quran.txt").text)
         self.quran_box.grid(row=1, column=0, padx=10, pady=10, sticky="nsew", columnspan=3, rowspan=4)
         self.quran_box.configure(state="disabled")
