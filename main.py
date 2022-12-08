@@ -54,7 +54,7 @@ extra = r"""
 extra = False
 
 def auto_update():
-    bypass = True
+    bypass = False
     if bypass == True:
         Buidler().mainloop()
     else:
