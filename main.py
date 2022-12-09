@@ -153,8 +153,8 @@ class Buidler(kdot.CTk):
         self.build_own_executable_check_box.grid(row=1, column=3, padx=10, pady=10, sticky="e")
         
         #start button
-        self.start_button = kdot.CTkButton(self.home_frame, text="Start", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=80, width=200, command=self.start_button_event)
-        self.start_button.grid(row=2, column=1, columnspan=2, padx=10, pady=10, sticky="nsew")
+        self.start_button = kdot.CTkButton(self.home_frame, text="Start", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=80, width=450, command=self.start_button_event)
+        self.start_button.grid(row=2, column=0, columnspan=4, padx=10, pady=10, sticky="nsew")
         
         self.bottom_image_place = kdot.CTkLabel(self.home_frame, image=self.bottom_image, text="K.Dot#4044", text_color=("black", "black"), anchor="s", font=("Arial", 20))
         self.bottom_image_place.grid(row=5, column=0, columnspan=4, sticky="n", pady=5, padx=5)
